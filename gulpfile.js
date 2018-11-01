@@ -1,7 +1,8 @@
-const {parallel, series, src, dest, watch, task} = require('gulp');
+const gulp = require('gulp');
 const autoprefixer = require('gulp-autoprefixer');
 const clean = require('gulp-clean');
 const concat = require('gulp-concat');
+const runSequence = require('run-sequence');
 const browserSync = require('browser-sync').create();
 
 const distDirectory = 'dist';
@@ -10,61 +11,70 @@ const imagesBlob = 'src/images/**';
 const fontsBlob = 'src/fonts/**';
 const stylesBlob = 'src/css/**';
 
-const reloadBrowser = function (done) {
-  browserSync.reload();
-  done();
-};
+gulp.task('default', function () {
+  return runSequence('build', 'serve');
+});
 
-const processHtml = function () {
-  return src(htmlBlob)
-    .pipe(dest(distDirectory));
-};
+gulp.task('build', function () {
+  return runSequence(
+    'cleanDist',
+    ['processStyles', 'processHtml', 'processImages', 'processFonts']
+  );
+});
 
-const processImages = function () {
-  return src(imagesBlob)
-    .pipe(dest(`${distDirectory}/images/`));
-};
-
-const processFonts = function () {
-  return src(fontsBlob)
-    .pipe(dest(`${distDirectory}/fonts/`));
-};
-
-const processStyles = function () {
-  return src(stylesBlob)
-    .pipe(concat('styles.css'))
-    .pipe(autoprefixer({
-      browsers: ['last 2 versions']
-    }))
-    .pipe(dest(`${distDirectory}/css`));
-};
-
-const serve = function () {
+gulp.task('serve', function () {
   browserSync.init({
     server: {
       baseDir: distDirectory
     }
   });
 
-  watch(htmlBlob, series(processHtml, reloadBrowser));
-  watch(imagesBlob, series(processImages, reloadBrowser));
-  watch(fontsBlob, series(processFonts, reloadBrowser));
-  watch(stylesBlob, series(processStyles, reloadBrowser));
-};
+  gulp.watch(htmlBlob, function () {
+    return runSequence('processHtml', 'reloadBrowser');
+  });
 
-const cleanDist = function () {
-  return src(distDirectory, {read: false, allowEmpty: true}).pipe(clean());
-};
+  gulp.watch(imagesBlob, function () {
+    return runSequence('processImages', 'reloadBrowser');
+  });
 
-const build = series(
-  cleanDist,
-  parallel(processStyles, processHtml, processImages, processFonts),
-);
+  gulp.watch(fontsBlob, function () {
+    return runSequence('processFonts', 'reloadBrowser');
+  });
 
-task('build', build);
+  gulp.watch(stylesBlob, function () {
+    return runSequence('processStyles', 'reloadBrowser');
+  });
+});
 
-task('default', series(
-  build,
-  serve
-))
-;
+gulp.task('cleanDist', function () {
+  return gulp.src(distDirectory, {read: false, allowEmpty: true}).pipe(clean());
+});
+
+gulp.task('processHtml', function () {
+  return gulp.src(htmlBlob)
+    .pipe(gulp.dest(distDirectory));
+});
+
+gulp.task('processImages', function () {
+  return gulp.src(imagesBlob)
+    .pipe(gulp.dest(`${distDirectory}/images/`));
+});
+
+gulp.task('processFonts', function () {
+  return gulp.src(fontsBlob)
+    .pipe(gulp.dest(`${distDirectory}/fonts/`));
+});
+
+gulp.task('processStyles', function () {
+  return gulp.src(stylesBlob)
+    .pipe(concat('styles.css'))
+    .pipe(autoprefixer({
+      browsers: ['last 2 versions']
+    }))
+    .pipe(gulp.dest(`${distDirectory}/css`));
+});
+
+gulp.task('reloadBrowser', function (done) {
+  browserSync.reload();
+  done();
+});
