@@ -5,7 +5,7 @@ Template to start from before starting frontend projects.
 ## Install template
 
 ``` sh
-$ git clone https://github.com/mate-academy/gulp-default.git project-name
+$ git clone https://github.com/mate-academy/gulp-template.git project-name
 $ cd project-name
 $ npm install
 ```
