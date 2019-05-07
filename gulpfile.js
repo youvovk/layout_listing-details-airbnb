@@ -1,92 +1,120 @@
+'use strict';
+
 const gulp = require('gulp');
 const autoprefixer = require('gulp-autoprefixer');
 const clean = require('gulp-clean');
-const concat = require('gulp-concat');
-const runSequence = require('run-sequence');
-const browserSync = require('browser-sync').create();
+const browserSync = require('browser-sync');
+const sass = require('gulp-sass');
+const sourcemaps = require('gulp-sourcemaps');
+const colors = require('colors');
+
+const gulpStylelint = require('gulp-stylelint');
+const gulpHtmllint = require('gulp-htmllint');
+const gulpEslint = require('gulp-eslint');
 
 const distDirectory = 'dist';
 const htmlBlob = 'src/*.html';
 const imagesBlob = 'src/images/**';
 const fontsBlob = 'src/fonts/**';
-const stylesBlob = 'src/css/**';
-const jsBlob = 'src/js/**';
+const stylesBlob = 'src/styles/**';
+const jsBlob = 'src/scripts/**';
 
+const { series, parallel } = gulp;
 
-gulp.task('default', function () {
-  return runSequence('build', 'serve');
+gulp.task('cleanDist', function() {
+  return gulp.src(distDirectory, { read: false, allowEmpty: true })
+    .pipe(clean());
 });
 
-gulp.task('build', function () {
-  return runSequence(
-    'cleanDist',
-    ['processStyles', 'processHtml', 'processImages', 'processFonts', 'processJs']
-  );
-});
-
-gulp.task('serve', function () {
-  browserSync.init({
-    server: {
-      baseDir: distDirectory
-    }
-  });
-
-  gulp.watch(htmlBlob, function () {
-    return runSequence('processHtml', 'reloadBrowser');
-  });
-
-  gulp.watch(imagesBlob, function () {
-    return runSequence('processImages', 'reloadBrowser');
-  });
-
-  gulp.watch(fontsBlob, function () {
-    return runSequence('processFonts', 'reloadBrowser');
-  });
-
-  gulp.watch(stylesBlob, function () {
-    return runSequence('processStyles', 'reloadBrowser');
-  });
-
-  gulp.watch(jsBlob, function () {
-    return runSequence('processJs', 'reloadBrowser');
-  });
-
-});
-
-gulp.task('cleanDist', function () {
-  return gulp.src(distDirectory, {read: false, allowEmpty: true}).pipe(clean());
-});
-
-gulp.task('processHtml', function () {
+gulp.task('processHtml', function() {
   return gulp.src(htmlBlob)
+    .pipe(gulpHtmllint({
+      config: './node_modules/@mate-academy/htmllint-config/.htmllintrc',
+    }, function(filepath, issues) {
+      issues.forEach(function(issue) {
+        const { line, column, code, msg } = issue;
+        console.log(
+          ` ❌   ${colors.red('htmllint error')}
+          📁  file: ${filepath}
+          🖊️ [line: ${line}, column: ${column}]: (${code}) - ${msg}`);
+      });
+    }))
     .pipe(gulp.dest(distDirectory));
 });
 
-gulp.task('processImages', function () {
+gulp.task('processImages', function() {
   return gulp.src(imagesBlob)
     .pipe(gulp.dest(`${distDirectory}/images/`));
 });
 
-gulp.task('processFonts', function () {
+gulp.task('processFonts', function() {
   return gulp.src(fontsBlob)
     .pipe(gulp.dest(`${distDirectory}/fonts/`));
 });
 
-gulp.task('processStyles', function () {
+gulp.task('lintCss', function() {
+  return gulp
+    .src(stylesBlob)
+    .pipe(gulpStylelint({
+      failAfterError: false,
+      reporters: [
+        { formatter: 'string', console: true },
+      ],
+      debug: true,
+    }));
+});
+
+gulp.task('processStyles', series('lintCss', function() {
   return gulp.src(stylesBlob)
-    .pipe(concat('styles.css'))
+    .pipe(sourcemaps.init())
+    .pipe(sass())
     .pipe(autoprefixer({
-      browsers: ['last 2 versions']
+      browsers: ['last 2 versions'],
     }))
-    .pipe(gulp.dest(`${distDirectory}/css`));
-});
+    .pipe(sourcemaps.write('.'))
+    .pipe(gulp.dest(`${distDirectory}/styles`))
+    .pipe(browserSync.reload({ stream: true }));
+}));
 
-gulp.task('processJs', function () {
+gulp.task('processJs', function() {
   return gulp.src(jsBlob)
-    .pipe(gulp.dest(`${distDirectory}/js/`));
+    .pipe(gulpEslint())
+    .pipe(gulpEslint.format())
+    .pipe(gulp.dest(`${distDirectory}/scripts/`));
 });
 
-gulp.task('reloadBrowser', function (done) {
-  browserSync.reload();
-  done();
+gulp.task('build', series(
+  'cleanDist',
+  parallel(
+    'processStyles',
+    'processHtml',
+    'processImages',
+    'processFonts',
+    'processJs',
+  )
+));
+
+gulp.task('serve', function() {
+  browserSync.init({
+    server: {
+      baseDir: distDirectory,
+    },
+    port: 8080,
+  });
+
+  gulp.watch(htmlBlob, series('processHtml'))
+    .on('change', browserSync.reload);
+
+  gulp.watch(imagesBlob, series('processImages'))
+    .on('change', browserSync.reload);
+
+  gulp.watch(fontsBlob, series('processFonts'))
+    .on('change', browserSync.reload);
+
+  gulp.watch(stylesBlob, series('processStyles'));
+
+  gulp.watch(jsBlob, series('processJs'))
+    .on('change', browserSync.reload);
 });
+
+gulp.task('default', series('build', 'serve'));
