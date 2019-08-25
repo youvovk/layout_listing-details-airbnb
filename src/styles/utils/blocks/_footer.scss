@@ -1,0 +1,16 @@
+.footer {
+  width: 901px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+  padding: 44px 0 45px;
+
+  &-title {
+    font-weight: bold;
+    margin-bottom: 22px;
+  }
+
+  &-item {
+    margin-bottom: 11px;
+  }
+}

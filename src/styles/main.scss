@@ -1,7 +1,14 @@
 @import "utils";
-@import "fonts";
-@import "typography";
+
+@font-face {
+  font-family: "Avenir";
+  src: url("/src/Avenir.ttf"), format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
 
 body {
-  background: $c-gray;
+  font-weight: 300px;
+  font-family: "Avenir", sans-serif;
+  color: #3d4e61;
 }

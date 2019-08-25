@@ -2,12 +2,197 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Title</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
     <link rel="stylesheet" href="./styles/main.css">
   </head>
   <body>
-    <img src="./images/logo.svg" alt="Logo">
-    <h1>Hello Mate academy</h1>
-    <script type="text/javascript" src="scripts/main.js"></script>
+    <header class="header">
+      <div class="header__container">
+        <img src="images/Rectangle 2.png" alt="airbnb-logo" class="img--heigth">
+        <nav class="nav">
+          <ul class="nav__items">
+            <li class="nav__item--indent text-size16">
+              <a href="#" class="link">Become a host</a>
+            </li>
+            <li class="nav__item--indent text-size16">
+              <a href="#" class="link">Trips</a>
+            </li>
+            <li class="text-size16">
+              <a href="#" class="link">Messages</a>
+            </li>
+          </ul>
+          <a href="#" class="img_heigth">
+            <img src="images/Ellipse.png" alt="profile-link" class="img__profile img_heigth">
+          </a>
+        </nav>
+
+        <nav class="menu__hamburger">
+          <input id="menu__toggle" type="checkbox" />
+          <label class="menu__btn" for="menu__toggle">
+            <span></span>
+          </label>
+          <div class="menu__box">
+                  <img src="images/Ellipse.png" alt="profile-link" class="menu__item_img img__profile img_heigth">
+              <ul>
+                  <li class="menu__item text-size16">
+                    <a href="#" class="link">Become a host</a>
+                  </li>
+                  <li class="menu__item text-size16">
+                    <a href="#" class="link">Trips</a>
+                  </li>
+                  <li class="menu__item text-size16">
+                    <a href="#" class="link">Messages</a>
+                  </li>
+                </ul>
+
+          </div>
+
+        </nav>
+      </div>
+    </header>
+
+    <section class="images__main-container">
+      <img src="images/Image.png" alt="apartment-images" class="images__main">
+    </section>
+
+    <div class="container">
+      <main class="main">
+
+          <section class="settlement_media">
+              <div class="settlement-form">
+                <p class="settlement__prise-night text-size18">25$ per night</p>
+                <input type="text" placeholder="Date" class="settlement-input settlement-input--indent  text">
+                <input type="text" placeholder="Guests" class="settlement-input text">
+                <button class="settlement-book__button">Book</button>
+              </div>
+            </section>
+
+        <div class="apartment-container">
+            <section class="apartment">
+                <div class="apartment__info">
+                  <h1 class="apartment__name">Quiet apartment</h1>
+                  <p class="apartment-entire">Entire apartment</p>
+                  <div class="quantity-rooms text-size16">
+                    <p>4 guests</p>
+                    <p>1 bed</p>
+                    <p>1 bath</p>
+                  </div>
+                  <p class="apartment-description text-size16">
+                    City Apartment is newly renovated in the heart of Budapest,
+                    right in the city center. Lorem ipsum dolor sit amet,
+                    consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                    labore et dolore magna aliqua. Ut enim ad minim veniam.
+                  </p>
+                  <h4 class="apartment-contact text-size16">Contact host</h4>
+                  <h3 class="amenities text-size20">Amenities</h3>
+                  <div class="amenities-items text-size16">
+                    <p class="amenities-item">Elevator</p>
+                    <p class="amenities-item">Washer</p>
+                    <p class="amenities-item">Hair dryer</p>
+                    <p class="amenities-item">Kitchen</p>
+                  </div>
+                  <h3 class="amenities-show text-size16">Show All Amenities</h3>
+                </div>
+
+                <div class="reviews">
+                <h2 class="reviews-title text-size28">Reviews</h2>
+                <div class="reviews__data">
+                  <img src="images/reviews.png" alt="" class="reviews__profile-photo">
+                  <div class="reviews__profile-name">
+                    <p class="reviews-name text-size20">John</p>
+                    <p class="text-size20">September 2016</p>
+                  </div>
+                </div>
+                <p class="reviews-text text-size18">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                  sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam.
+                </p>
+                <div class="reviews__data">
+                  <img src="images/reviews.png" alt="" class="reviews__profile-photo">
+                  <div class="reviews__profile-name">
+                    <p class="reviews-name text-size20">John</p>
+                    <p class="text-size20">September 2016</p>
+                  </div>
+                </div>
+                <p class="reviews-text text-size18">
+                  Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam.
+                </p>
+                </div>
+
+                <div class="hosted">
+                  <h2 class="hosted-people text-size28">Hosted by Jane</h2>
+                  <p class="hosted__city-name">Budapest, Hungary</p>
+                  <p class="hosted-text text-size18">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                    sed do eiusmod tempor incididunt ut labore et magna aliqua.
+                  </p>
+                </div>
+                <button class="contact-host__button">Contact Host</button>
+              </section>
+        </div>
+
+
+
+        <section class="settlement">
+          <div class="settlement-form">
+            <p class="settlement__prise-night text-size18">25$ per night</p>
+            <input type="text" placeholder="Date" class="settlement-input settlement-input--indent  text">
+            <input type="text" placeholder="Guests" class="settlement-input text">
+            <button class="settlement-book__button">Book</button>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div class="container">
+      <footer class="footer">
+        <div class="footer__airbnb text-size16">
+          <h3 class="footer-title">
+            Airbnb
+          </h3>
+          <p class="footer-item footer-item--media">
+            About
+          </p>
+          <p class="footer-item footer-item--media">
+            Press
+          </p>
+          <p class="footer-item--media">
+            Help
+          </p>
+        </div>
+        <div class="footer__discover text-size16">
+          <h3 class="footer-title">
+            Discover
+          </h3>
+          <p class="footer-item footer-item--media">
+            Travel credit
+          </p>
+          <p class="footer-item footer-item--media">
+            Business
+          </p>
+          <p class="footer-item--media">
+            Guidebooks
+          </p>
+        </div>
+        <div class="footer__hosting text-size16">
+          <h3 class="footer-title">
+            Hosting
+          </h3>
+          <p class="footer-item footer-item--media">
+            Why host
+          </p>
+          <p class="footer-item footer-item--media">
+            Hospitality
+          </p>
+          <p class="footer-item--media">
+            Community
+          </p>
+        </div>
+      </footer>
+    </div>
   </body>
 </html>

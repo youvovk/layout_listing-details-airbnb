@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  justify-content: center;
+  position: relative;
+
+  &::after {
+    content: "";
+    height: 1px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: darken(#e1e7ed, 20%);
+    mix-blend-mode: normal;
+    opacity: 0.3;
+  }
+}
+
+.apartment-container {
+  width: 86.1%;
+}

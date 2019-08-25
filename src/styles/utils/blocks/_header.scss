@@ -1,0 +1,135 @@
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 0;
+  margin-left: 26px;
+}
+
+.nav {
+  display: flex;
+
+  &__items {
+    display: flex;
+    width: 304px;
+    align-items: center;
+    list-style: none;
+  }
+
+  &__item--indent {
+    margin-right: 31px;
+  }
+}
+
+.img--heigth {
+  height: 30px;
+}
+
+.img__profile {
+  margin: 0 19px 0 30px;
+}
+
+.link {
+  text-decoration: none;
+  font-weight: bold;
+
+  &:visited {
+    color: #3d4e61;
+  }
+}
+
+/*Hamburger Menu*/
+.menu__hamburger {
+  display: none;
+}
+
+#menu__toggle {
+  opacity: 0;
+}
+
+.menu__btn {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+  z-index: 1;
+
+  & > span,
+  & > span::before,
+  & > span::after {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #616161;
+    transition-duration: 0.25s;
+  }
+
+  & > span::before {
+    content: "";
+    top: -8px;
+  }
+
+  & > span::after {
+    content: "";
+    top: 8px;
+  }
+}
+
+.menu__box {
+  display: block;
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 150px;
+  height: 100%;
+  margin: 0;
+  padding: 80px 0;
+  list-style: none;
+  text-align: left;
+  background-color: #fff;
+  box-shadow: 1px 0 6px rgba(0, 0, 0, 0.2);
+  transition-duration: 0.25s;
+}
+
+.menu__item {
+  display: block;
+  padding: 12px 24px;
+  font-weight: 600 bold;
+  text-decoration: none;
+  transition-duration: 0.25s;
+
+  &:hover {
+    background-color: #cfd8dc;
+  }
+}
+
+.menu__item_img {
+  text-align: left;
+  position: absolute;
+  top: 16px;
+  left: 0;
+  height: 40px;
+}
+
+#menu__toggle:checked ~ .menu__btn > span {
+  transform: rotate(45deg);
+}
+
+#menu__toggle:checked ~ .menu__btn > span::before {
+  top: 0;
+  transform: rotate(0);
+}
+
+#menu__toggle:checked ~ .menu__btn > span::after {
+  top: 0;
+  transform: rotate(90deg);
+}
+
+#menu__toggle:checked ~ .menu__box {
+  visibility: visible;
+  right: 0;
+}
