@@ -13,3 +13,8 @@
 .text-size28 {
   @extend %text-size28;
 }
+
+.text {
+  font-size: 16px;
+  line-height: 22px;
+}

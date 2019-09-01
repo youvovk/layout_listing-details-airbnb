@@ -1,0 +1,13 @@
+.link {
+  text-decoration: none;
+  color: #3d4e61;
+  transition: color 250ms;
+
+  &:hover {
+    color: #fd5c63;
+  }
+
+  &_bold {
+    font-weight: bold;
+  }
+}

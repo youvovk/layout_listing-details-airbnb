@@ -42,12 +42,6 @@
 .img__profile {
   margin: 0 19px 0 30px; }
 
-.link {
-  text-decoration: none;
-  font-weight: bold; }
-  .link:visited {
-    color: #3d4e61; }
-
 /*Hamburger Menu*/
 .menu__hamburger {
   display: none; }
@@ -152,7 +146,6 @@
     padding-bottom: 33px; }
   .apartment__name {
     font-size: 36px;
-    font-weight: bold;
     margin-bottom: 14px; }
   .apartment-entire {
     font-size: 16px;
@@ -162,15 +155,14 @@
     margin-bottom: 30px;
     line-height: 24px; }
   .apartment-contact {
-    font-weight: bold;
     margin-bottom: 44px; }
 
-.quantity-rooms {
+.rooms {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   margin-bottom: 32px; }
-  .quantity-rooms :nth-child(-n+2) {
+  .rooms :nth-child(-n+2) {
     margin-right: 30px; }
 
 .amenities {
@@ -202,6 +194,9 @@
     display: flex;
     margin-bottom: 20px; }
   .reviews__profile-photo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
     margin-right: 21px; }
   .reviews__profile-name {
     display: -webkit-box;
@@ -216,8 +211,6 @@
             justify-content: space-between; }
   .reviews__profile-name :first-child {
     margin-top: 4px; }
-  .reviews-name {
-    font-weight: bold; }
   .reviews-text {
     line-height: 19px;
     padding-bottom: 40px; }
@@ -237,7 +230,7 @@
   width: 150px;
   height: 50px;
   color: #118488;
-  background: #fff;
+  background-color: #fff;
   font-size: 16px;
   font-weight: bold;
   border: 1px solid #118488;
@@ -245,16 +238,18 @@
           box-sizing: border-box;
   border-radius: 4px;
   outline: none;
-  cursor: pointer; }
+  cursor: pointer;
+  -webkit-transition: background-color 300ms, color 300ms;
+  transition: background-color 300ms, color 300ms; }
   .contact-host__button:hover {
-    background: #118488;
+    background-color: #118488;
     color: #fff; }
 
-.settlement {
+.order {
   margin-right: 20px; }
-  .settlement__prise-night {
+  .order__price-night {
     margin-bottom: 39px; }
-  .settlement-input {
+  .order-input {
     height: 50px;
     border: 1px solid #e1e7ed;
     -webkit-box-sizing: border-box;
@@ -263,9 +258,9 @@
     padding-left: 17px;
     outline: none;
     cursor: pointer; }
-  .settlement-input:focus {
+  .order-input:focus, .order-input:active {
     border: 1px solid #fd5c63; }
-  .settlement-form {
+  .order-form {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -280,29 +275,39 @@
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
     border-radius: 3px; }
-  .settlement-input--indent {
+  .order-input--indent {
     margin-bottom: 16px; }
-  .settlement-book__button {
+  .order input[type="date"]::-webkit-calendar-picker-indicator {
+    display: inline-block;
+    margin-top: 2%; }
+  .order input[type="date"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0; }
+  .order-book__button {
     height: 50px;
     color: #fff;
-    background: #fd5c63;
+    background-color: #fd5c63;
     border-radius: 4px;
-    border: none;
+    border: 1px solid #fd5c63;
     margin: 24px 0 8px;
     outline: none;
-    cursor: pointer; }
-  .settlement-book__button:hover {
-    background: #fff;
-    color: #fd5c63;
-    border: 1px solid #fd5c63; }
-  .settlement_media {
+    cursor: pointer;
+    -webkit-transition: color 300ms, background-color 300ms;
+    transition: color 300ms, background-color 300ms; }
+  .order-book__button:hover {
+    background-color: #fff;
+    color: #fd5c63; }
+  .order__media {
     display: none;
     margin-right: 20px; }
 
-.images__main {
-  width: 100%; }
-  .images__main-container {
-    height: 464px; }
+.image__main {
+  width: 100%;
+  margin-bottom: 40px; }
+
+.text {
+  font-size: 16px;
+  line-height: 22px; }
 
 .container {
   display: -webkit-box;
@@ -340,50 +345,32 @@
   .footer-item {
     margin-bottom: 11px; }
 
-@media screen and (max-width: 1150px) {
-  .images__main-container {
-    height: 410px; } }
-
 @media screen and (max-width: 1070px) {
-  .images__main-container {
-    height: 380px; }
   .footer,
   .apartment-container {
     margin-left: 20px; } }
 
-@media screen and (max-width: 900px) {
-  .images__main-container {
-    height: 340px; } }
-
-@media screen and (max-width: 750px) {
-  .images__main-container {
-    height: 280px; } }
-
 @media screen and (max-width: 730px) {
-  .images__main-container {
-    height: 250px; }
   .main {
     grid-template-columns: 90%; }
-  .settlement {
+  .order {
     display: none; }
-    .settlement_media {
+    .order__media {
       display: block;
       margin-bottom: 40px; }
-    .settlement__prise-night {
+    .order__price-night {
       margin-bottom: 20px; }
-    .settlement-input {
+    .order-input {
       height: 40px; }
-    .settlement-form {
+    .order-form {
       height: 260px;
       padding: 30px; }
-    .settlement-input--indent {
+    .order-input--indent {
       margin-bottom: 10px; }
-    .settlement-book__button {
+    .order-book__button {
       height: 40px; } }
 
 @media screen and (max-width: 570px) {
-  .images__main-container {
-    height: 220px; }
   .nav__items {
     display: none; }
   .img_heigth {
@@ -405,18 +392,16 @@
 
 @media screen and (max-width: 500px) {
   .footer {
-    display: block; }
+    grid-template-columns: repeat(2, 1fr); }
     .footer__airbnb, .footer__discover {
       margin-bottom: 30px; }
     .footer-item--media {
       margin-left: 10px; } }
 
 @media screen and (max-width: 440px) {
-  .images__main-container {
-    height: 180px; }
-  .settlement_media {
+  .order__media {
     margin-right: 0; }
-  .settlement-form {
+  .order-form {
     height: 250px;
     padding: 20px 15px; } }
 
@@ -431,8 +416,6 @@
     margin-left: 10px; }
   .apartment__name {
     font-size: 26px; }
-  .images__main-container {
-    height: 140px; }
   .text-size28 {
     font-size: 20px; }
   .text-size16 {
@@ -442,15 +425,31 @@
   .text-size20 {
     font-size: 17px; } }
 
+.link {
+  text-decoration: none;
+  color: #3d4e61;
+  -webkit-transition: color 250ms;
+  transition: color 250ms; }
+  .link:hover {
+    color: #fd5c63; }
+  .link_bold {
+    font-weight: bold; }
+
 @font-face {
-  font-family: "Avenir";
-  src: url("/src/Avenir.ttf"), format("truetype");
+  font-family: "Avenir-Light";
+  src: url("../fonts/Avenir-Light.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal; }
+
+@font-face {
+  font-family: "Avenir-Medium";
+  src: url("../fonts/Avenir-Medium.ttf") format("truetype");
   font-style: normal;
   font-weight: normal; }
 
 body {
-  font-weight: 300px;
-  font-family: "Avenir", sans-serif;
+  font-family: "Avenir-Medium", sans-serif;
+  font-weight: 300;
   color: #3d4e61; }
 
 /*# sourceMappingURL=main.css.map */
