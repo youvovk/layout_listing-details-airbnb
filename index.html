@@ -10,17 +10,19 @@
   <body>
     <header class="header">
       <div class="header__container">
-        <img src="images/Rectangle 2.png" alt="airbnb-logo" class="img--heigth">
+        <a href="#">
+          <img src="images/Rectangle 2.png" alt="airbnb-logo" class="img--heigth">
+        </a>
         <nav class="nav">
           <ul class="nav__items">
             <li class="nav__item--indent text-size16">
-              <a href="#" class="link">Become a host</a>
+              <a href="#" class="link link_bold">Become a host</a>
             </li>
             <li class="nav__item--indent text-size16">
-              <a href="#" class="link">Trips</a>
+              <a href="#" class="link link_bold">Trips</a>
             </li>
             <li class="text-size16">
-              <a href="#" class="link">Messages</a>
+              <a href="#" class="link link_bold">Messages</a>
             </li>
           </ul>
           <a href="#" class="img_heigth">
@@ -34,115 +36,189 @@
             <span></span>
           </label>
           <div class="menu__box">
-                  <img src="images/Ellipse.png" alt="profile-link" class="menu__item_img img__profile img_heigth">
-              <ul>
-                  <li class="menu__item text-size16">
-                    <a href="#" class="link">Become a host</a>
-                  </li>
-                  <li class="menu__item text-size16">
-                    <a href="#" class="link">Trips</a>
-                  </li>
-                  <li class="menu__item text-size16">
-                    <a href="#" class="link">Messages</a>
-                  </li>
-                </ul>
-
+            <img src="images/Ellipse.png"
+                  alt="your photo profile"
+                  class="menu__item_img img__profile img_heigth">
+            <ul>
+              <li class="menu__item text-size16">
+                <a href="#" class="link link_bold">
+                  Become a host
+                </a>
+              </li>
+              <li class="menu__item text-size16">
+                <a href="#" class="link link_bold">
+                  Trips
+                </a>
+              </li>
+              <li class="menu__item text-size16">
+                <a href="#" class="link link_bold">
+                  Messages
+                </a>
+              </li>
+            </ul>
           </div>
-
         </nav>
       </div>
     </header>
 
-    <section class="images__main-container">
-      <img src="images/Image.png" alt="apartment-images" class="images__main">
+    <section>
+      <img src="images/Image.png" alt="apartment-image" class="image__main">
     </section>
 
     <div class="container">
       <main class="main">
+        <section class="order order__media">
+          <div class="order-form">
+            <p class="order__price-night text-size18">
+              25$ per night
+            </p>
+            <input type="text"
+                    onfocus="(this.type='date')"
+                    onblur="(this.type='text')"
+                    name="order"
+                    placeholder="Date"
+                    class="order-input order-input--indent text">
 
-          <section class="settlement_media">
-              <div class="settlement-form">
-                <p class="settlement__prise-night text-size18">25$ per night</p>
-                <input type="text" placeholder="Date" class="settlement-input settlement-input--indent  text">
-                <input type="text" placeholder="Guests" class="settlement-input text">
-                <button class="settlement-book__button">Book</button>
-              </div>
-            </section>
+            <input type="text"
+                    name="firstname"
+                    placeholder="Guests"
+                    class="order-input text">
+            <button class="order-book__button">
+              Book
+            </button>
+          </div>
+        </section>
 
-        <div class="apartment-container">
+          <div class="apartment-container">
             <section class="apartment">
-                <div class="apartment__info">
-                  <h1 class="apartment__name">Quiet apartment</h1>
-                  <p class="apartment-entire">Entire apartment</p>
-                  <div class="quantity-rooms text-size16">
-                    <p>4 guests</p>
-                    <p>1 bed</p>
-                    <p>1 bath</p>
-                  </div>
-                  <p class="apartment-description text-size16">
-                    City Apartment is newly renovated in the heart of Budapest,
-                    right in the city center. Lorem ipsum dolor sit amet,
-                    consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                    labore et dolore magna aliqua. Ut enim ad minim veniam.
-                  </p>
-                  <h4 class="apartment-contact text-size16">Contact host</h4>
-                  <h3 class="amenities text-size20">Amenities</h3>
-                  <div class="amenities-items text-size16">
-                    <p class="amenities-item">Elevator</p>
-                    <p class="amenities-item">Washer</p>
-                    <p class="amenities-item">Hair dryer</p>
-                    <p class="amenities-item">Kitchen</p>
-                  </div>
-                  <h3 class="amenities-show text-size16">Show All Amenities</h3>
+              <div class="apartment__info">
+                <h1 class="apartment__name">
+                  Quiet apartment
+                </h1>
+                <p class="apartment-entire">
+                  Entire apartment
+                </p>
+                <div class="rooms text-size16">
+                  <p>4 guests</p>
+                  <p>1 bed</p>
+                  <p>1 bath</p>
                 </div>
+                <p class="apartment-description text-size16">
+                  City Apartment is newly renovated in the heart of Budapest,
+                  right in the city center. Lorem ipsum dolor sit amet,
+                  consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                  labore et dolore magna aliqua. Ut enim ad minim veniam.
+                </p>
+                <a href="#" class="link link_bold">
+                  <h4 class="apartment-contact text-size16">
+                    Contact host
+                  </h4>
+                </a>
+                <h3 class="amenities text-size20">
+                  Amenities
+                </h3>
+                <div class="amenities-items text-size16">
+                  <p class="amenities-item">
+                    Elevator
+                  </p>
+                  <p class="amenities-item">
+                    Washer
+                  </p>
+                  <p class="amenities-item">
+                    Hair dryer
+                  </p>
+                  <p class="amenities-item">
+                    Kitchen
+                  </p>
+                </div>
+                <a href="#" class="link link_bold">
+                  <h3 class="text-size16">
+                    Show All Amenities
+                  </h3>
+                </a>
+              </div>
 
-                <div class="reviews">
-                <h2 class="reviews-title text-size28">Reviews</h2>
+              <div class="reviews">
+                <h2 class="reviews-title text-size28">
+                  Reviews
+                </h2>
                 <div class="reviews__data">
-                  <img src="images/reviews.png" alt="" class="reviews__profile-photo">
+                  <a href="#">
+                    <img src="images/cat.jpg" alt="commentator's profile" class="reviews__profile-photo">
+                  </a>
                   <div class="reviews__profile-name">
-                    <p class="reviews-name text-size20">John</p>
-                    <p class="text-size20">September 2016</p>
+                    <a href="#" class="link link_bold">
+                      <p class="text-size20">
+                        Mr. John
+                      </p>
+                    </a>
+                    <p class="text-size20">
+                      September 2016
+                    </p>
                   </div>
                 </div>
                 <p class="reviews-text text-size18">
+                  The cat (Felis catus) is a small carnivorous mammal. It is the only
+                  domesticated species in the family Felidae and often referred to as the domestic
+                  cat to distinguish it from wild members of the family.
+                </p>
+                <div class="reviews__data">
+                  <a href="#">
+                    <img src="images/cat.jpg" alt="commentator's profile" class="reviews__profile-photo">
+                  </a>
+                  <div class="reviews__profile-name">
+                    <a href="#" class="link link_bold">
+                      <p class="text-size20">
+                        Mr. Paul
+                      </p>
+                    </a>
+                    <p class="text-size20">
+                      September 2016
+                    </p>
+                  </div>
+                </div>
+                <p class="reviews-text text-size18">
+                  The cat is either a house cat or a farm cat,
+                  which are pets, or a feral cat, which ranges freely and avoids human contact.
+                </p>
+              </div>
+
+              <div class="hosted">
+                <h2 class="hosted-people text-size28">
+                  Hosted by Jane
+                </h2>
+                <p class="hosted__city-name">
+                  Budapest, Hungary
+                </p>
+                <p class="hosted-text text-size18">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                  sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam.
+                  sed do eiusmod tempor incididunt ut labore et magna aliqua.
                 </p>
-                <div class="reviews__data">
-                  <img src="images/reviews.png" alt="" class="reviews__profile-photo">
-                  <div class="reviews__profile-name">
-                    <p class="reviews-name text-size20">John</p>
-                    <p class="text-size20">September 2016</p>
-                  </div>
-                </div>
-                <p class="reviews-text text-size18">
-                  Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam.
-                </p>
-                </div>
+              </div>
+              <button class="contact-host__button">
+                Contact Host
+              </button>
+            </section>
+          </div>
 
-                <div class="hosted">
-                  <h2 class="hosted-people text-size28">Hosted by Jane</h2>
-                  <p class="hosted__city-name">Budapest, Hungary</p>
-                  <p class="hosted-text text-size18">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                    sed do eiusmod tempor incididunt ut labore et magna aliqua.
-                  </p>
-                </div>
-                <button class="contact-host__button">Contact Host</button>
-              </section>
-        </div>
-
-
-
-        <section class="settlement">
-          <div class="settlement-form">
-            <p class="settlement__prise-night text-size18">25$ per night</p>
-            <input type="text" placeholder="Date" class="settlement-input settlement-input--indent  text">
-            <input type="text" placeholder="Guests" class="settlement-input text">
-            <button class="settlement-book__button">Book</button>
+        <section class="order">
+          <div class="order-form">
+            <p class="order__price-night text-size18">
+              25$ per night
+            </p>
+            <input type="text"
+                     onfocus="(this.type='date')"
+                     onblur="(this.type='text')"
+                     name="order"
+                     placeholder="Date"
+                     class="order-input order-input--indent  text">
+            <input type="text"
+                   name="firstname"
+                   placeholder="Guests"
+                   class="order-input text">
+            <button class="order-book__button">
+              Book
+            </button>
           </div>
         </section>
       </main>
@@ -154,43 +230,61 @@
           <h3 class="footer-title">
             Airbnb
           </h3>
-          <p class="footer-item footer-item--media">
-            About
-          </p>
-          <p class="footer-item footer-item--media">
-            Press
-          </p>
-          <p class="footer-item--media">
-            Help
-          </p>
+          <a href="#" class="link">
+            <p class="footer-item footer-item--media">
+              About
+            </p>
+          </a>
+          <a href="#" class="link">
+            <p class="footer-item footer-item--media">
+              Press
+            </p>
+          </a>
+          <a href="#" class="link">
+            <p class="footer-item--media">
+              Help
+            </p>
+          </a>
         </div>
         <div class="footer__discover text-size16">
           <h3 class="footer-title">
             Discover
           </h3>
-          <p class="footer-item footer-item--media">
-            Travel credit
-          </p>
-          <p class="footer-item footer-item--media">
-            Business
-          </p>
-          <p class="footer-item--media">
-            Guidebooks
-          </p>
+          <a href="#" class="link">
+            <p class="footer-item footer-item--media">
+              Travel credit
+            </p>
+          </a>
+          <a href="#" class="link">
+            <p class="footer-item footer-item--media">
+              Business
+            </p>
+          </a>
+          <a href="#" class="link">
+            <p class="footer-item--media">
+              Guidebooks
+            </p>
+          </a>
         </div>
         <div class="footer__hosting text-size16">
           <h3 class="footer-title">
             Hosting
           </h3>
-          <p class="footer-item footer-item--media">
-            Why host
-          </p>
-          <p class="footer-item footer-item--media">
-            Hospitality
-          </p>
-          <p class="footer-item--media">
-            Community
-          </p>
+          <a href="#" class="link">
+            <p class="footer-item footer-item--media">
+              Why host
+            </p>
+          </a>
+          <a href="#" class="link">
+            <p class="footer-item footer-item--media">
+              Hospitality
+            </p>
+          </a>
+          <a href="#" class="link">
+            <p class="footer-item--media">
+              Community
+            </p>
+          </a>
         </div>
       </footer>
     </div>
