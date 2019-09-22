@@ -25,7 +25,7 @@
 
   &-description {
     margin-bottom: 30px;
-    line-height: 24px;
+    line-height: 1.9;
   }
 
   &-contact {
@@ -90,6 +90,10 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+    &-bold {
+      font-weight: 600;
+    }
   }
 
   &__profile-name :first-child() {
@@ -97,7 +101,7 @@
   }
 
   &-text {
-    line-height: 19px;
+    line-height: 1.5;
     padding-bottom: 40px;
   }
 }
@@ -116,7 +120,7 @@
   }
 
   &-text {
-    line-height: 19px;
+    line-height: 1.5;
   }
 }
 
@@ -188,6 +192,7 @@
   }
 
   &-book__button {
+    font-size: 18px;
     height: 50px;
     color: #fff;
     background-color: #fd5c63;

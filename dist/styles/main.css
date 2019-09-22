@@ -153,7 +153,7 @@
     margin-bottom: 18px; }
   .apartment-description {
     margin-bottom: 30px;
-    line-height: 24px; }
+    line-height: 1.9; }
   .apartment-contact {
     margin-bottom: 44px; }
 
@@ -209,10 +209,12 @@
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between; }
+    .reviews__profile-name-bold {
+      font-weight: 600; }
   .reviews__profile-name :first-child {
     margin-top: 4px; }
   .reviews-text {
-    line-height: 19px;
+    line-height: 1.5;
     padding-bottom: 40px; }
 
 .hosted {
@@ -224,7 +226,7 @@
     font-size: 14px;
     margin-bottom: 18px; }
   .hosted-text {
-    line-height: 19px; }
+    line-height: 1.5; }
 
 .contact-host__button {
   width: 150px;
@@ -284,6 +286,7 @@
     -webkit-appearance: none;
     margin: 0; }
   .order-book__button {
+    font-size: 18px;
     height: 50px;
     color: #fff;
     background-color: #fd5c63;
